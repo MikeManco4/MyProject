@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prova2</title>
+        <style> /* CSS */
+            input{ /*modifiche sui campi di testo*/
+                width: 20%;
+                height: 25px;
+                color: black;
+                background-color: rgba(226, 226, 226, 0.652);
+                border-radius: 7px;
+            }
+            button{ /*modifiche sui bottoni*/
+                height: 30px;
+                width: 20%;
+                background-color: blue;
+                color: black;
+                border-radius: 7px;
+                font-size: 18px;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="text1" placeholder="testo1"> <!--Campo di testo 1-->
+        <input type="text" id="text2" placeholder="testo2"> <!--Campo di testo 2-->
+        <input type="text" id="text3" placeholder="testo3"> <!--Campo di testo 3-->
+        <button onclick="assegnaTesto()"><b>Conferma</b></button> <!--Bottone-->
+        <br><br><br>
+        <button onclick="lanciaDato()"><b>Conferma</b></button> <!--Bottone-->
+
+        <script> //JAVASCRIPT
+            var add=0; //variabile contenente l'addizione di tutti i numeri
+            var contaPari=0; //contatore dei numeri pari
+            var contaDispari=0; //contatore dei numeri dispari
+
+            function assegnaTesto(){ //FUNZIONE CHE ASSEGNA ALLE VARIABILI IL VALORE DEI CAMPI DI TESTO HTML
+                var testo1 = document.getElementById("text1"); //assegno alla variabile testo1 il contenuto del del primo input
+                var testo2 = document.getElementById("text2"); //assegno alla variabile testo2 il contenuto del del secondo input
+                var testo3 = document.getElementById("text3"); //assegno alla variabile testo3 il contenuto del del terzo input
+                console.log(testo1); //Mostro in console
+                console.log(testo2); //Mostro in console
+                console.log(testo3); //Mostro in console
+            }
+
+            function lanciaDato(){ //FUNZIONE DEL LANCIO DEL DATO
+                var NumMin=1; //numero minimo
+                var NumMax=6 //numero massimo
+                var NumeroCasuale=Math.floor(Math.random()*(NumMax - NumMin + 1)) + NumMin; //creazione di un numero casuale tra NumMin e NumMax
+                console.log("Numero uscito: "+NumeroCasuale); //Mostro a schermo il numero
+                add=add+NumeroCasuale; //sommo tutti i numeri che escono
+                console.log("Numero addizionato:"+add);//mostro il numero
+                CtrlPariDispari(NumeroCasuale); //eseguo il controllo per vedere se è pari o dispari
+            }
+
+            function CtrlPariDispari(numero){ //FUNZIONE DI CONTROLLO DEL NUMERO (PARI O DISPARI)
+                var ris = numero % 2; //calcolo il numero
+                if(ris == 0){ //se è VERO e PARI
+                    contaPari=contaPari+1;
+                    console.log("Numeri Pari: "+contaPari);
+                    console.log("E' pari!");
+                }else if(ris == 1){ //se è FALSO è DISPARI
+                    contaDispari=contaDispari+1;
+                    console.log("Numeri dispari: "+contaDispari);
+                    console.log("E' dispari!");
+                }
+            }
+
+        </script>
+    </body>
+</html>
